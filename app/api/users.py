@@ -1,15 +1,14 @@
-# app/api/users.py
-# Routes for user registration and login
+
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from ..models import models, schemas
 from ..database import get_db
-from ..core import token # We will create this file next
+from ..core import token 
 from passlib.context import CryptContext
 
-# --- Hashing Logic ---
+# Hashing Logic 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def verify_password(plain_password, hashed_password):
@@ -18,7 +17,7 @@ def verify_password(plain_password, hashed_password):
 def get_password_hash(password):
     return pwd_context.hash(password)
 
-# --- Router Setup ---
+
 router = APIRouter()
 
 @router.post("/register", response_model=schemas.UserOut, status_code=status.HTTP_201_CREATED)
