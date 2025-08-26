@@ -1,12 +1,11 @@
-# app/models/schemas.py
-# Contains the Pydantic schemas for data validation and serialization.
+
 
 from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 import datetime
 import uuid
 
-# --- User Schemas ---
+
 class UserCreate(BaseModel):
     name: str
     age: Optional[int] = None
@@ -24,7 +23,7 @@ class UserOut(BaseModel):
         orm_mode = True
 
 
-# --- Authentication Schemas ---
+
 class Token(BaseModel):
     access_token: str
     token_type: str
@@ -39,7 +38,7 @@ class UserLogin(BaseModel):
     password: str
 
 
-# --- Session Schemas ---
+
 class SessionBase(BaseModel):
     user_id: int
 
