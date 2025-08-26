@@ -1,5 +1,4 @@
-# app/models/models.py
-# Contains the SQLAlchemy ORM models for your database tables.
+
 
 from sqlalchemy import Column, Integer, String, TIMESTAMP, ForeignKey, Text
 from sqlalchemy.dialects.postgresql import UUID
